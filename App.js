@@ -13,21 +13,20 @@ state = {
 }
 
 handleClick = () => {
-  this.setState({count: this.state.count + 1});
+  this.setState({count: this.state.count + 1}, () => {
+    console.log('setState complete');
+  });
+
+  console.log('handleClick console log')
 }
 
-handleClick2 = () => {
-  this.setState((previousState) => ({count: previousState.count + 1}))
-  this.setState((previousState) => ({count: previousState.count + 1}))
-  this.setState((previousState) => ({count: previousState.count + 1}))
-}
 
   render(){
     return (
       <div className="App">
        
         <button onClick={this.handleClick}>{this.state.count}</button>
-        <button onClick={this.handleClick2}>{this.state.count}</button>
+        <button onClick={this.handleClick}>{this.state.count}</button>
       </div>
     );
   }
