@@ -12,12 +12,12 @@ state = {
   count: 0
 }
 
-handleClick = () => {
-  this.setState({count: this.state.count + 1}, () => {
-    console.log('setState complete');
-  });
+handleClickPlus = () => {
+  this.setState({count: this.state.count + 1})
+}
 
-  console.log('handleClick console log')
+handleClickMinus = () => {
+  this.setState({count: this.state.count - 1})
 }
 
 
@@ -25,8 +25,10 @@ handleClick = () => {
     return (
       <div className="App">
        
-        <button onClick={this.handleClick}>{this.state.count}</button>
-        <button onClick={this.handleClick}>{this.state.count}</button>
+        <button onClick={this.handleClickPlus}> Plus </button>
+        <p>{this.state.count}</p>
+        <button onClick={this.handleClickMinus}> Minus </button>
+        
       </div>
     );
   }
