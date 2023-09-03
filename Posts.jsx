@@ -6,7 +6,11 @@ function Posts(props){
         <div>
             {
                 props.posts.map(post => (
-                    <Post key={post.id} name={post.name} cb={props.cb}/>
+                    <Post key={post.id}
+                          id={post.id} 
+                          name={post.name} 
+                          cb={post.cb} 
+                          removePost={props.removePost}/>
                 ))
             }
         </div>

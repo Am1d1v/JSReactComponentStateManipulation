@@ -17,16 +17,17 @@ constructor(){
   }
 }
 
-
-handleSomething = () => {
-  console.log('setState updated')
+removePost = (id) => {
+  this.setState({posts: this.state.posts.filter(post => post.id !== id)})
 }
 
 
   render(){
+    const {posts} = this.state;
+
     return (
       <div className="App">   
-       <Posts posts={this.state.posts} cb={this.handleSomething}/>
+       <Posts posts={posts} cb={this.handleSomething} removePost={this.removePost}/>
       </div>
     );
   }
