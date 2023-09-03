@@ -12,47 +12,22 @@ constructor(){
   super();
 
   this.state = {
-    count: 0,
-    isCounting: false
+    posts: [
+      {id: 'abc1', name: "Name1"},
+      {id: 'abc2', name: "Name2"},
+      {id: 'abc3', name: "Name3"},
+    ]
   }
 }
 
-componentDidMount(){
 
-}
-
-componentDidUpdate(){
-
-}
-
-handleStart = () => {
-  this.setState({isCounting: true});
-
-  this.counterId = setInterval(() => {
-    this.setState({count: this.state.count + 1})
-  }, 1000)
-}
-
-
-handleStop = () => {
-  this.setState({isCounting: false});
-
-  clearInterval(this.counterId);
-}
-
-
-handleReset = () => {
-  this.setState({count: this.state.count = 0})
-}
 
   render(){
     return (
       <div className="App">   
-        <h1>React Timer</h1>
-        <h3>{this.state.count}</h3>
-        {!this.state.isCounting ? (<button onClick={this.handleStart}>Start</button>) : (
-        <button onClick={this.handleStop}>Stop</button>)}
-        <button onClick={this.handleReset}>Reset</button>
+        {this.state.posts.map(post => (
+          <h2 key={post.id}>{post.name}</h2>
+        ))}
       </div>
     );
   }
