@@ -19,16 +19,21 @@ componentDidMount(){
   fetch("https://jsonplaceholder.typicode.com/posts")
   .then(response => response.json())
   .then(data => this.setState({posts: data, loading: false}))
+
+  this.timerID = setInterval(() => {
+    fetch("https://jsonplaceholder.typicode.com/comments")
+    .then(response => response.json())
+    .then(data => this.setState({comments: data}))
+  }, 3000)
   
 }
 
 componentDidUpdate(){
   console.log('updated');
-  // fetch('/meta');
 }
 
 componentWillUnmount(){
-
+  clearInterval(this.timerID);
 }
 
 
